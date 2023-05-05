@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <title>Darts Rechner</title>
+
+
+
+    <style>
+        body {
+            
+            color: white;
+        }
+
+        table, th, td {
+          border:1px solid rgb(255, 255, 255);
+        }
+
+        #pfeil_img {
+            
+            
+            transform: rotateY(180deg);
+            padding-left: 7px;
+            padding-right: 7px;
+        }
+
+       
+
+        
+    </style>
+
+</head>
+
+<body class="bg-[#202127] ">
+    <img src="dartsscheibe.avif" usemap="#image-map">
+    <map name="image-map"  id="map" onclick="return false">
+        <!--20er Reihe-->
+        <area href="#" coords="365,111,383,108,400,106,418,107,436,109,449,111,448,126,418,124,396,123,368,128" shape="poly" onclick="myfunctionD20()">
+        <area href="#" coords="368,126,377,124,384,123,391,123,397,123,404,123,413,123,421,124,428,124,439,126,446,128,432,211,381,210" shape="poly" onclick="myfunction20()">
+        <area href="#" coords="380,213,394,212,407,211,420,212,432,214,431,230,413,228,393,227,384,229" shape="poly" onclick="myfunctionT20()">
+        <area href="#" coords="383,231,399,227,416,227,429,230,409,355,401,357" shape="poly" onclick="myFunction20()">
+        <!--1er Reihe -->
+        <area href="#" coords="452,113,467,115,481,117,495,123,504,124,515,130,525,134,532,137,524,153,501,143,480,136,463,131,449,129" shape="poly" onclick="myfunctionD1()">
+        <area href="#" coords="448,129,472,133,490,139,504,144,525,153,484,233,433,210" shape="poly" onclick="myfunction1()">
+        <area href="#" coords="433,215,443,217,456,220,469,224,481,230,476,244,461,237,446,233,431,230" shape="poly" onclick="myfunctionT1()">
+        <area href="#" coords="431,230,448,235,465,241,476,246,419,362,408,356" shape="poly" onclick="myFunction1()">
+        <!--18er Reihe-->
+        <area href="#" coords="533,141,553,150,570,162,586,175,602,190,589,200,561,176,526,154" shape="poly" onclick="myfunctionD18()">
+        <area href="#" coords="526,155,542,164,562,179,583,193,589,202,528,263,486,230" shape="poly" onclick="myfunction18()">
+        <area href="#" coords="485,230,497,239,510,250,528,263,516,274,492,254,477,245" shape="poly" onclick="myfunctionT18()">
+        <area href="#" coords="476,247,488,253,498,259,507,267,514,275,423,365,420,362" shape="poly" onclick="myFunction18()">
+        <!--4er Reihe-->
+        <area href="#" coords="603,192,613,203,622,213,632,227,639,237,648,252,652,261,641,268,624,239,609,221,593,204" shape="poly" onclick="myfunctionD4()">
+        <area href="#" coords="589,200,608,221,623,240,639,267,560,307,547,284,529,261" shape="poly" onclick="myfunction4()">
+        <area href="#" coords="530,265,543,284,560,308,544,315,529,289,518,276" shape="poly" onclick="myfunctionT4()">
+        <area href="#" coords="515,272,531,294,544,315,429,373,424,365" shape="poly" onclick="myFunction4()">
+        <!--13er Reihe-->
+        <area href="#" coords="653,264,659,275,665,293,670,310,674,325,678,343,662,346,653,308,645,283,641,271" shape="poly" onclick="myfunctionD13()">
+        <area href="#" coords="638,271,645,286,653,306,659,335,661,343,578,358,571,336,566,321,560,308" shape="poly" onclick="myfunction13()">
+        <area href="#" coords="560,307,566,323,572,344,575,357,561,361,554,338,547,316" shape="poly" onclick="myfunctionT13()">
+        <area href="#" coords="545,316,556,342,561,362,429,380,428,376" shape="poly" onclick="myFunction13()">
+        <!--6er Reihe-->
+        <area href="#" coords="677,345,680,361,680,385,678,411,676,428,664,426,666,376,664,347" shape="poly" onclick="myfunctionD6()">
+        <area href="#" coords="578,361,663,347,665,371,665,392,664,411,661,427,612,418,576,412" shape="poly" onclick="myfunction6()">
+        <area href="#" coords="562,362,573,361,577,375,577,402,575,412,560,410" shape="poly" onclick="myfunctionT6()">
+        <area href="#" coords="430,380,561,362,564,387,558,411,429,389" shape="poly" onclick="myFunction6()">
+        <!--10er Reihe-->
+        <area href="#" coords="677,432,667,476,651,512,636,504,653,463,661,428" shape="poly" onclick="myfunctionD10()">
+        <area href="#" coords="662,428,652,466,636,504,559,464,570,436,576,414" shape="poly" onclick="myfunction10()">
+        <area href="#" coords="577,416,571,438,561,465,546,458,555,434,561,413" shape="poly" onclick="myfunctionT10()">
+        <area href="#" coords="558,411,553,435,542,455,429,397,432,390" shape="poly" onclick="myFunction10()">
+        <!--15er Reihe-->
+        <area href="#" coords="651,511,630,550,598,582,589,569,621,533,636,505" shape="poly" onclick="myfunctionD15()">
+        <area href="#" coords="636,507,616,538,589,571,528,507,546,486,558,464" shape="poly" onclick="myfunction15()">
+        <area href="#" coords="558,464,545,487,525,508,515,496,530,480,545,460" shape="poly" onclick="myfunctionT15()">
+        <area href="#" coords="543,457,534,473,515,497,424,404,430,398" shape="poly" onclick="myFunction1()">
+        <!--2er Reihe-->
+        <area href="#" coords="597,582,588,571,565,590,521,616,531,633,561,614,582,599" shape="poly" onclick="myfunctionD2()">
+        <area href="#" coords="586,570,554,598,521,617,484,540,510,523,525,510" shape="poly" onclick="myfunction2()">
+        <area href="#" coords="524,510,506,524,484,538,474,523,499,511,515,496" shape="poly" onclick="myfunctionT2()">
+        <area href="#" coords="513,496,494,512,476,523,417,408,424,405" shape="poly" onclick="myFunction2()">
+        <!--17er Reihe-->
+        <area href="#" coords="528,633,504,643,467,656,446,658,444,642,488,633,519,620" shape="poly" onclick="myfunctionD17()">
+        <area href="#" coords="520,617,498,627,480,633,444,642,430,556,452,552,467,545,480,540" shape="poly" onclick="myfunction17()">
+        <area href="#" coords="481,540,464,548,431,556,429,542,450,534,474,526" shape="poly" onclick="myfunctionT17()">
+        <area href="#" coords="473,525,451,535,428,540,408,412,415,407" shape="poly" onclick="myFunction17()">
+        <!--3er Reihe-->
+        <area href="#" coords="445,658,412,662,381,661,360,659,363,642,407,646,444,643" shape="poly" onclick="myfunctionD3()">
+        <area href="#" coords="441,642,404,645,362,641,378,556,400,558,428,557" shape="poly" onclick="myfunction3()">
+        <area href="#" coords="429,557,414,556,397,558,377,554,380,539,406,541,426,540" shape="poly" onclick="myfunctionT3()">
+        <area href="#" coords="426,539,403,540,378,538,400,410,408,409" shape="poly" onclick="myFunction3()">
+        <!--19er Reihe-->
+        <area href="#" coords="285,616,310,628,343,640,360,641,357,659,322,648,293,638,276,631" shape="poly" onclick="myfunctionD19()">
+        <area href="#" coords="326,539,283,614,312,629,340,636,361,640,375,557,354,552" shape="poly" onclick="myfunction19()">
+        <area href="#" coords="333,524,347,532,360,536,376,537,375,555,362,552,345,547,326,538" shape="poly" onclick="myfunctionT19()">
+        <area href="#" coords="392,408,399,412,378,538,358,535,333,522" shape="poly" onclick="myFunction19()">
+        <!--7er Reihe-->
+        <area href="#" coords="220,567,237,583,257,599,282,613,277,632,240,607,207,578" shape="poly" onclick="myfunctionD7()">
+        <area href="#" coords="280,506,293,518,307,528,322,538,283,616,261,603,236,583,219,567" shape="poly" onclick="myfunction7()">
+        <area href="#" coords="292,494,313,512,330,523,323,540,304,526,282,504" shape="poly" onclick="myfunctionT7()">
+        <area href="#" coords="294,495,312,512,331,522,392,409,386,403" shape="poly" onclick="myFunction7()">
+        <!--16er Reihe-->
+        <area href="#" coords="171,503,188,531,217,565,206,576,182,549,157,507" shape="poly" onclick="myfunctionD16()">
+        <area href="#" coords="174,502,189,530,218,568,281,505,265,488,250,463" shape="poly" onclick="myfunction16()">
+        <area href="#" coords="264,457,276,474,291,494,280,503,265,487,253,462" shape="poly" onclick="myfunctionT16()">
+        <area href="#" coords="380,396,264,453,278,475,293,494,387,403" shape="poly" onclick="myFunction16()">
+        <!--8er Reihe-->
+        <area href="#" coords="130,425,139,460,155,506,170,499,156,464,146,424" shape="poly" onclick="myfunctionD8()">
+        <area href="#" coords="146,424,156,461,170,500,249,460,239,440,233,411" shape="poly" onclick="myfunction8()">
+        <area href="#" coords="249,408,254,429,263,454,249,461,241,438,233,410" shape="poly" onclick="myfunctionT8()">
+        <area href="#" coords="250,408,254,428,265,455,380,397,378,388" shape="poly" onclick="myFunction8()">
+        <!--11er Reihe-->
+        <area href="#" coords="133,340,128,357,127,374,127,391,128,406,130,423,146,422,144,390,145,368,147,343" shape="poly" onclick="myfunctionD11()">
+        <area href="#" coords="148,342,145,370,144,399,146,422,232,410,232,381,230,356" shape="poly" onclick="myfunction11()">
+        <area href="#" coords="235,354,231,373,232,393,234,408,248,406,247,383,251,360" shape="poly" onclick="myfunctionT11()">
+        <area href="#" coords="251,360,248,386,250,406,377,388,378,381" shape="poly" onclick="myFunction11()">
+        <!--14er Reihe-->
+        <area href="#" coords="174,264,159,295,146,340,131,335,146,290,160,257" shape="poly" onclick="myfunctionD14()">
+        <area href="#" coords="174,265,250,305,242,323,234,354,147,341,157,300" shape="poly" onclick="myfunction14()">
+        <area href="#" coords="265,312,257,332,251,358,236,357,240,332,250,307" shape="poly" onclick="myfunctionT14()">
+        <area href="#" coords="267,314,257,331,249,356,378,379,380,372" shape="poly" onclick="myFunction14()">
+        <!--9er Reihe-->
+        <area href="#" coords="210,186,184,216,159,254,173,263,194,231,222,200" shape="poly" onclick="myfunctionD9()">
+        <area href="#" coords="223,201,282,261,266,279,249,304,175,264,195,231" shape="poly" onclick="myfunction9()">
+        <area href="#" coords="295,273,282,288,267,311,252,304,264,284,283,263" shape="poly" onclick="myfunctionT9()">
+        <area href="#" coords="295,273,284,287,267,311,380,371,385,365" shape="poly" onclick="myFunction9()">
+        <!--12er Reihe-->
+        <area href="#" coords="280,138,249,153,209,186,222,197,252,172,289,151" shape="poly" onclick="myfunctionD12()">
+        <area href="#" coords="289,153,326,229,304,243,283,260,223,198,249,175" shape="poly" onclick="myfunction12()">
+        <area href="#" coords="284,260,301,245,326,229,335,243,318,253,296,272" shape="poly" onclick="myfunctionT12()">
+        <area href="#" coords="295,272,386,365,392,359,335,245,318,254" shape="poly" onclick="myFunction12()">
+        <!--5er Reihe-->
+        <area href="#" coords="283,136,307,125,334,117,363,110,365,127,341,132,318,140,291,151" shape="poly" onclick="myfunctionD5()">
+        <area href="#" coords="289,151,328,229,357,217,379,214,365,127,334,134" shape="poly" onclick="myfunction5()">
+        <area href="#" coords="328,229,349,220,378,214,381,231,362,235,337,244" shape="poly" onclick="myfunctionT5()">
+        <area href="#" coords="336,243,360,236,382,229,400,357,393,361" shape="poly" onclick="myFunction5()">
+        <!--25er Kreis-->
+        <area href="#" coords="401,410,413,409,428,399,430,381,427,367,408,358,393,362,394,376,410,373,418,387,409,397,397,392,391,361,378,379,382,402" shape="poly" onclick="myFunctionK25()">
+        <!--50er Krei(Bullseye)-->
+        <area href="#" coords="405,384,11" shape="circle" onclick="myFunctionK50()">
+        <!--0er Ausenkreis ()-->
+        <area href="#" coords="544,140,626,211,663,278,683,362,681,421,670,476,638,543,588,599,535,635,456,661,394,665,301,645,243,612,181,550,139,469,128,413,129,337,34,376,52,490,110,604,198,693,294,739,411,756,509,740,604,698,700,610,760,499,775,400,772,331,746,230,685,132,591,59,492,21,413,10,321,20,238,51,176,93,126,141,92,189,75,221,47,297,35,372,130,335,153,264,203,192,292,128,388,105,471,113,34,376" shape="poly" onclick="myFunctionK0()">
+
+       
+    </map>
+    
+    <div class="h-auto w-auto">
+        
+
+
+
+        <input type="text" id="demo1" placeholder=" /" disabled class="text-white mb-2 mt-2 placeholder-white rounded-md">
+        <br>
+        <input type="text" id="demo2" placeholder=" /" disabled class="text-white mb-2 placeholder-white rounded-md">
+        <br>
+        <input type="text" id="demo3" placeholder=" /" disabled class="text-white mb-2 placeholder-white rounded-md">
+        <br>
+
+        <button type="button" id="reset" value="zurücksetzen" onclick="resetValue()" class="w-40 h-7 bg-green-600 rounded-full font-bold text-black mr-1 mb-2">Zurücksetzten</button>
+        <button id="calculateBtn" class="w-40 h-7 bg-green-600 rounded-full font-bold text-black" onclick="calc()">Berechnen</button>
+        
+
+        <span id="resultOutput"></span>
+    
+
+
+        <div class="w-auto h-auto">
+            <table id="playerListTable">
+                <tr>
+                    <th>
+                        <span id="setCounter">
+                            First to <input type="number" id="SetsInput" max="9" min="1" class="text-black w-7">
+                        </span>
+                    </th>
+                    <th>Sets</th>
+                    <th>Legs</th>
+                    <th>Punkte</th>
+                </tr>
+                <tr id="player1">
+                    <td id="player1name">
+                        <input type="text" placeholder="Spielername" id="player1nameInput" max="5" class="text-black">
+                    </td>
+                    <td id="player1sets">0</td>
+                    <td id="player1legs">0</td>
+                    <td id="player1punkte" class="flex items-center"> 
+                        <span id="player1punkte_span">501</span> 
+                        <img src="https://www.printer-care.de/media/images/org/symbol-pfeil-satz-von-5-stueck-40x60-mm-rot-1.jpg" id="pfeil_img" class="w-10 h-4">
+                        <span id="playerpunkte1">/</span>
+                    </td>
+                </tr>
+                <tr id="player2">
+                    <td id="player2name">
+                        <input type="text" placeholder="Spielername" id="player2nameInput" class="text-black">
+                    </td>
+                    <td id="player2sets">0</td>
+                    <td id="player2legs">0</td>
+                    <td id="player2punkte" class="flex items-center">
+                        <span id="player2punkte_span">501</span> 
+                        <img src="https://www.printer-care.de/media/images/org/symbol-pfeil-satz-von-5-stueck-40x60-mm-rot-1.jpg" id="pfeil_img" class="w-10 h-4">
+                        <span id="playerpunkte2">/</span>
+                    </td>
+                
+                </tr>
+                <tr id="player3">
+                    <td id="player3name">
+                        <input type="text" placeholder="Spielername" id="player3nameInput" class="text-black">
+                    </td>
+                    <td id="player3sets">0</td>
+                    <td id="player3legs">0</td>
+                    <td id="player3punkte" class="flex items-center">
+                        <span id="player3punkte_span">501</span> 
+                        <img src="https://www.printer-care.de/media/images/org/symbol-pfeil-satz-von-5-stueck-40x60-mm-rot-1.jpg" id="pfeil_img" class="w-10 h-4">
+                        <span id="playerpunkte3">/</span>
+                    </td>
+                
+                </tr>
+                <tr id="player4">
+                    <td id="player4name">
+                        <input type="text" placeholder="Spielername" id="player4nameInput" class="text-black">
+                    </td>
+                    <td id="player4sets">0</td>
+                    <td id="player4legs">0</td>
+                    <td id="player4punkte" class="flex items-center">
+                        <span id="player4punkte_span">501</span> 
+                        <img src="https://www.printer-care.de/media/images/org/symbol-pfeil-satz-von-5-stueck-40x60-mm-rot-1.jpg" id="pfeil_img" class="w-10 h-4">
+                        <span id="playerpunkte4">/</span>
+                    </td>
+                
+                </tr>
+
+
+            </table>
+
+
+        </div>
+
+        <br>
+
+    </div >
+    
+
+
+</body>
+</html>
